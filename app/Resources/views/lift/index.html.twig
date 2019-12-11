@@ -49,6 +49,13 @@
 
       {{ include('lift/_form.html.twig') }}
 
+      <script>
+        $(document).ready(function() {
+          $('.js-delete-rep-log').on('click', function() {
+            console.log('todo delete!');
+          });
+        });
+      </script>
     </div>
     <div class="col-md-5">
       <div class="leaderboard">
@@ -66,9 +73,5 @@
 {% block javascripts %}
   {{ parent() }}
 
-  <script>
-    $('.js-delete-rep-log').on('click', function() {
-      console.log('todo delete!');
-    });
-  </script>
+
 {% endblock %}
