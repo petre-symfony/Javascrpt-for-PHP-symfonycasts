@@ -27,7 +27,7 @@
               <td>{{ repLog.totalWeightLifted }}</td>
               <td>
                 <a href="#" class="js-delete-rep-log">
-                  <span class="fa fa-trash"></span>Delete
+                  <span class="fa fa-trash"></span>
                 </a>
               </td>
             </tr>
@@ -75,7 +75,10 @@
         e.preventDefault();
 
 				$(this).addClass('text-danger');
-				console.log(e.currentTarget === this);
+        $(this).find('.fa')
+          .removeClass('fa-trash')
+          .addClass('fa-spinner')
+          .addClass('fa-spin');
         //e.target.className = e.target.className + ' text-danger';
 
       });
