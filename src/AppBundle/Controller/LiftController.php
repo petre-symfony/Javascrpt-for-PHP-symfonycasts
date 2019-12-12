@@ -25,6 +25,13 @@ class LiftController extends BaseController {
       $em->persist($repLog);
       $em->flush();
 
+	    // return a blank form after success
+	    if ($request->isXmlHttpRequest()) {
+		    return $this->render('lift/_repRow.html.twig', [
+			    'repLog' => $repLog
+		    ]);
+	    }
+
       $this->addFlash('notice', 'Reps crunched!');
 
       return $this->redirectToRoute('lift');
