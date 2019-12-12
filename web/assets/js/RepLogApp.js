@@ -15,6 +15,11 @@
 				'click',
 				this.handleRowClick.bind(this)
 			);
+
+			this.$wrapper.find('.js-new-rep-log-form').on(
+				'submit',
+				this.handleNewFormSubmit.bind(this)
+			);
 		}
 
 	$.extend(window.RepLogApp.prototype, {
@@ -49,6 +54,11 @@
 			console.log('row clicked!');
 		},
 
+		handleNewFormSubmit: function(e) {
+			e.preventDefault();
+			console.log('submitting!');
+		},
+		
 		updateTotalWeightLifted: function() {
 			this.$wrapper.find('.js-total-weight').html(
 				this.helper.calculateTotalWeight()
