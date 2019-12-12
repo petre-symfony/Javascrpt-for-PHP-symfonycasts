@@ -72,38 +72,56 @@
   {{ parent() }}
 
   <script>
-    $(document).ready(function() {
+    var RepLogApp = {
+      initialize: function($wrapper) {
+        this.$wrapper = $wrapper;
 
-      var $table = $('.js-rep-log-table');
+        this.$wrapper.find('.js-delete-rep-log').on(
+          'click',
+          this.handleRepLogDelete
+        );
 
-      $table.find('.js-delete-rep-log').on('click', function(e) {
+        this.$wrapper.find('tbody tr').on(
+          'click',
+          this.handleRowClick
+        );
+      },
+
+      handleRepLogDelete: function(e) {
         e.preventDefault();
 
-				//e.target.className = e.target.className + ' text-danger';
-				$(this).addClass('text-danger');
+        //e.target.className = e.target.className + ' text-danger';
+        $(this).addClass('text-danger');
 
         $(this).find('.fa')
           .removeClass('fa-trash')
           .addClass('fa-spinner')
           .addClass('fa-spin');
 
-				var deleteUrl = $(this).data('url');
-				var $row = $(this).closest('tr');
+        var deleteUrl = $(this).data('url');
+        var $row = $(this).closest('tr');
         var $totalWeightContainer = $table.find('.js-total-weight');
         var newWeight = $totalWeightContainer.html() - $row.data('weight');
-				$.ajax({
-					url: deleteUrl,
-					method: 'DELETE',
-					success: function() {
-						$row.fadeOut();
+        $.ajax({
+          url: deleteUrl,
+          method: 'DELETE',
+          success: function() {
+            $row.fadeOut();
             $totalWeightContainer.html(newWeight);
-					}
-				});
-      });
+          }
+        });
+      },
 
-      $table.find('tbody tr').on('click', function() {
+      handleRowClick: function() {
         console.log('row clicked!');
-      });
+      }
+    };
+
+    $(document).ready(function() {
+
+      var $table = $('.js-rep-log-table');
+
+      
     });
 
   </script>
