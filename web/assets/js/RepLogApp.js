@@ -61,20 +61,17 @@
 			e.preventDefault();
 
 			var $form = $(e.currentTarget);
-			var $tbody = this.$wrapper.find('tbody');
-			var self = this;
-
 			$.ajax({
-				url: $form.attr('action'),
+				url: $form.data('url'),
 				method: 'POST',
 				data: $form.serialize(),
 				success: function(data) {
-					$tbody.append(data);
-					self.updateTotalWeightLifted();
+					// todo
+					console.log('success!')
 				},
 				error: function(jqXHR) {
-					$form.closest('.js-new-rep-log-form-wrapper')
-						.html(jqXHR.responseText);
+					//todo
+					console.log('error : (');
 				}
 			});
 		},
