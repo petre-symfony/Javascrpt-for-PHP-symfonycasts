@@ -45,15 +45,16 @@ var RepLogApp = {
 	},
 
 	updateTotalWeightLifted: function() {
+		this.$wrapper.find('.js-total-weight').html(
+			this._calculateTotalWeight()
+		);
+	},
+
+	_calculateTotalWeight: function() {
 		var totalWeight = 0;
-		this.$wrapper.find('tbody tr').each(function() {
+		this.$wrapper.find('tbody tr').each(function () {
 			totalWeight += $(this).data('weight');
 		});
-
-		this.$wrapper.find('.js-total-weight').html(totalWeight);
-	},
-
-	whatIsThis: function(greeting) {
-		console.log(this, greeting);
-	},
+		return totalWeight;
+	}
 };
