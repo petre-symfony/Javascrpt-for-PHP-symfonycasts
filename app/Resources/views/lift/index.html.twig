@@ -85,6 +85,8 @@
           'click',
           this.handleRowClick
         );
+
+        this.whatIsThis('hello');
       },
 
       handleRepLogDelete: function(e) {
@@ -123,6 +125,10 @@
         });
 
         this.$wrapper.find('.js-total-weight').html(totalWeight);
+      },
+
+      whatIsThis: function(greeting) {
+        console.log(this, greeting);
       },
     };
 
