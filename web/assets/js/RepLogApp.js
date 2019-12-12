@@ -1,4 +1,6 @@
 (function(window, $){
+	'use strict';
+
 	window.RepLogApp = {
 		initialize: function($wrapper) {
 			this.$wrapper = $wrapper;
@@ -53,7 +55,7 @@
 		}
 	};
 
-	Helper = {
+	var Helper = {
 		initialize: function ($wrapper) {
 			this.$wrapper = $wrapper;
 		},
