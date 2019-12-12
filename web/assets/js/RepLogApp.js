@@ -1,8 +1,7 @@
 (function(window, $){
 	'use strict';
 
-	window.RepLogApp = {
-		initialize: function($wrapper) {
+	window.RepLogApp = function($wrapper) {
 			this.$wrapper = $wrapper;
 			this.helper = new Helper(this.$wrapper);
 
@@ -16,8 +15,9 @@
 				'click',
 				this.handleRowClick.bind(this)
 			);
-		},
+		}
 
+	$.extend(window.RepLogApp.prototype, {
 		handleRepLogDelete: function(e) {
 			e.preventDefault();
 
@@ -54,7 +54,7 @@
 				this.helper.calculateTotalWeight()
 			);
 		}
-	};
+	});
 
 	var Helper =  function ($wrapper) {
 		this.$wrapper = $wrapper;
