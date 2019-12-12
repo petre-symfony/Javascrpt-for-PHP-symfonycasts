@@ -104,6 +104,8 @@
 
 				var $error = $('<span class="js-field-error help-block"></span>');
 				$error.html(errorData[fieldName]);
+				$wrapper.append($error);
+				$wrapper.addClass('has-error');
 			});
 		}
 	});
