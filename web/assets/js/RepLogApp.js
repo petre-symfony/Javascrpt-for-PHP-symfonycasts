@@ -53,7 +53,7 @@
 		}
 	};
 
-	var Helper = {
+	Helper = {
 		initialize: function ($wrapper) {
 			this.$wrapper = $wrapper;
 		},
