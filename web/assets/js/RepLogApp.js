@@ -6,6 +6,12 @@
 			this.$wrapper = $wrapper;
 			this.helper = new Helper(this.$wrapper);
 
+			console.log(
+				'foo'.__proto__,
+				[].__proto__,
+				(new Date()).__proto__
+			);
+			
 			this.$wrapper.find('.js-delete-rep-log').on(
 				'click',
 				this.handleRepLogDelete.bind(this)
@@ -15,16 +21,6 @@
 				'click',
 				this.handleRowClick.bind(this)
 			);
-
-			console.log(this.helper, Object.keys(this.helper));
-			console.log(Helper, Object.keys(Helper));
-			console.log(this.helper.calculateTotalWeight());
-
-			var playObject = {
-				lift: 'stuff'
-			};
-			playObject.__proto__.cat = 'meow';
-			console.log(playObject.lift, playObject.cat);
 		},
 
 		handleRepLogDelete: function(e) {
