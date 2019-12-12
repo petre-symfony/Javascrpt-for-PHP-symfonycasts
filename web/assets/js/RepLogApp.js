@@ -19,6 +19,12 @@
 			console.log(this.helper, Object.keys(this.helper));
 			console.log(Helper, Object.keys(Helper));
 			console.log(this.helper.calculateTotalWeight());
+
+			var playObject = {
+				lift: 'stuff'
+			};
+			playObject.__proto__.cat = 'meow';
+			console.log(playObject.lift, playObject.cat);
 		},
 
 		handleRepLogDelete: function(e) {
