@@ -60,7 +60,7 @@
 			var $form = $(e.currentTarget);
 			var $tbody = this.$wrapper.find('tbody');
 			var self = this;
-			
+
 			$.ajax({
 				url: $form.attr('action'),
 				method: 'POST',
