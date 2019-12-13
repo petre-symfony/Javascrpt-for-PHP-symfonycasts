@@ -96,6 +96,8 @@
 				url: Routing.generate('rep_log_new'),
 				method: 'POST',
 				data: JSON.stringify(data)
+			}).then(function(data, textStatus, jqXHR) {
+				console.log(jqXHR.getResponseHeader('Location'));
 			});
 		},
 
