@@ -85,11 +85,16 @@
 				.then(function(data) {
 					self._clearForm();
 					self._addRow(data);
-				}).catch(function(errorData) {
+				})/*.catch(function(errorData) {
+					self._mapErrorsToForm(errorData.errors);
+				})*/
+				.catch(function(jqXHR) {
+					var errorData = JSON.parse(jqXHR.responseText);
 					self._mapErrorsToForm(errorData.errors);
 				});
 		},
 
+		/*
 		_saveRepLog: function(data) {
 			return new Promise(function(resolve, reject) {
 				$.ajax({
@@ -108,6 +113,19 @@
 					reject(errorData);
 				});
 			});
+		},
+		*/
+
+		_saveRepLog: function(data) {
+				return $.ajax({
+					url: Routing.generate('rep_log_new'),
+					method: 'POST',
+					data: JSON.stringify(data)
+				}).then(function(data, textStatus, jqXHR) {
+					return $.ajax({
+						url: jqXHR.getResponseHeader('Location')
+					})
+				});
 		},
 
 		updateTotalWeightLifted: function() {
