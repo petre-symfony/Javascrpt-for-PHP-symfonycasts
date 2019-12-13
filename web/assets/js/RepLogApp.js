@@ -102,7 +102,9 @@
 						url: jqXHR.getResponseHeader('Location')
 					}).then(function(data) {
 						resolve(data);
-					});
+					})
+				}).catch(function(jqXHR) {
+					reject(jqXHR);
 				});
 			});
 		},
