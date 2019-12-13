@@ -1,4 +1,4 @@
-(function(window, $){
+(function(window, $, Routing){
 	'use strict';
 
 	window.RepLogApp = function($wrapper) {
@@ -154,4 +154,4 @@
 		}
 	})
 
-})(window, jQuery);
+})(window, jQuery, Routing);
