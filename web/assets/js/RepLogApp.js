@@ -32,7 +32,12 @@
 		},
 
 		loadRepLogs: function() {
-
+			$.ajax({
+				url: Routing.generate('rep_log_list'),
+				success: function(data) {
+					console.log(data);
+				}
+			});
 		},
 
 		handleRepLogDelete: function(e) {
