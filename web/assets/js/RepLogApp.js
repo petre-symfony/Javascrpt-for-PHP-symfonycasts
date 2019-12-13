@@ -100,7 +100,7 @@
 				console.log(data);
 
 				return data;
-			}, function(jqXHR) {
+			}).catch(function(jqXHR) {
 				console.log('failed!');
 				console.log(jqXHR.responseText);
 			}).then(function(data) {
