@@ -47,6 +47,20 @@
 
 			//e.target.className = e.target.className + ' text-danger';
 			var $link = $(e.currentTarget);
+			swal({
+				title: "Delete this log",
+				text: "Did you not actually lift this?",
+				showCancelButton: true
+			}).then(function () {
+				
+			}, function (dismiss) {
+				if (dismiss === timer){
+					console.log('I was closed by the timer');
+				}
+			})
+		},
+
+		_deleteRepLog: function($link){
 			$link.addClass('text-danger');
 
 			$link.find('.fa')
